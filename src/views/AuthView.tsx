@@ -3,6 +3,9 @@ import { Vault } from "lucide-react";
 import { supabase, supabaseConfigured } from "../lib/supabase.ts";
 import { Button, Field, inputCls } from "../components/ui.tsx";
 
+// URL pública de la app (incluye la subruta, p. ej. /linkvault/ en GitHub Pages).
+const APP_URL = `${window.location.origin}${import.meta.env.BASE_URL}`;
+
 export function AuthView() {
   const [mode, setMode] = useState<"login" | "signup" | "reset">("login");
   const [email, setEmail] = useState("");
@@ -22,13 +25,13 @@ export function AuthView() {
         const { data, error } = await supabase.auth.signUp({
           email,
           password,
-          options: { emailRedirectTo: window.location.origin },
+          options: { emailRedirectTo: APP_URL },
         });
         if (error) throw error;
         if (!data.session)
           setMsg({ kind: "ok", text: "Cuenta creada. Revisa tu correo y confirma la dirección para entrar." });
       } else {
-        const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin });
+        const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: APP_URL });
         if (error) throw error;
         setMsg({ kind: "ok", text: "Si el correo existe, recibirás un enlace para restablecer la contraseña." });
       }

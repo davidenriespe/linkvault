@@ -11,6 +11,8 @@ const repo =
     : "");
 
 export default defineConfig({
+  // En GitHub Pages la app vive en /linkvault/; en Vercel o local, en la raíz.
+  base: process.env.VITE_BASE ?? "/",
   plugins: [react(), tailwindcss()],
   define: {
     __BUILD_COMMIT__: JSON.stringify(commit.slice(0, 7)),

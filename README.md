@@ -148,7 +148,18 @@ npm run dev        # http://localhost:5173
 y los enlaces aparecen marcados como _Simulación_. También puedes **cargar datos de demostración** (marcados como _Demo_
 y eliminables con un clic).
 
-## Despliegue en Vercel
+## Despliegue en GitHub Pages (activo)
+
+La app se publica sola en **https://davidenriespe.github.io/linkvault/** con cada `git push` a `main`
+(`.github/workflows/pages.yml`): compila con la subruta `/linkvault/` y sube `dist/` a la rama `gh-pages`.
+
+Si la URL responde 404 tras el primer despliegue: GitHub → repositorio → **Settings → Pages** →
+_Source: Deploy from a branch_ → rama `gh-pages`, carpeta `/ (root)` → **Save**.
+
+Después, en Supabase → Authentication → URL Configuration, pon `https://davidenriespe.github.io/linkvault/`
+como **Site URL** y añádela a **Redirect URLs** (los correos de confirmación y recuperación vuelven ahí).
+
+## Despliegue en Vercel (alternativa)
 
 1. <https://vercel.com/new> → **Import Git Repository** → `davidenriespe/linkvault` (Vercel detecta Vite).
 2. **Environment Variables**: `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY` y, opcional, `VITE_GITHUB_REPO=davidenriespe/linkvault`.

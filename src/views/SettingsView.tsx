@@ -350,7 +350,7 @@ export function SettingsView({
       detail: isLocal
         ? "Ejecutándose en local (npm run dev)"
         : `Publicada en ${location.host} · compilada ${fmtDateTime(__BUILD_TIME__)}`,
-      fix: isLocal ? "Guía: README → Despliegue en Vercel" : undefined,
+      fix: isLocal ? "Guía: README → Despliegue" : undefined,
     },
   ];
 
