@@ -36,4 +36,4 @@ jobs:
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
-      - run: deno check supabase/functions/whatsapp-webhook/index.ts supabase/functions/links-api/index.ts
+      - run: deno check --config supabase/functions/deno.json supabase/functions/whatsapp-webhook/index.ts supabase/functions/links-api/index.ts
