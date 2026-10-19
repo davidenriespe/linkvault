@@ -126,8 +126,11 @@ export function staleDays(l: LinkView, staleAfter: number, now = Date.now()): nu
 
 export function daysUntil(dateIso: string | null, now = Date.now()): number | null {
   if (!dateIso) return null;
-  const d = new Date(`${dateIso.slice(0, 10)}T23:59:59`);
-  return Math.ceil((d.getTime() - now) / DAY_MS);
+  // Diferencia en días de calendario locales (hoy = 0, mañana = 1…).
+  const target = new Date(`${dateIso.slice(0, 10)}T00:00:00`);
+  const today = new Date(now);
+  today.setHours(0, 0, 0, 0);
+  return Math.round((target.getTime() - today.getTime()) / DAY_MS);
 }
 
 // ---------------------------------------------------------------------------

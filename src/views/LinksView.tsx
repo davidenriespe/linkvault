@@ -18,7 +18,7 @@ import {
   type ViewKey,
 } from "../lib/logic.ts";
 import { downloadFile } from "../lib/format.ts";
-import { Button, Field, inputCls } from "../components/ui.tsx";
+import { Button, Field, fieldBase, inputCls } from "../components/ui.tsx";
 import { LinkCard } from "../components/LinkCard.tsx";
 import type { Category } from "../lib/types.ts";
 
@@ -100,7 +100,7 @@ export function LinksView({
         </div>
         <select
           aria-label="Ordenar"
-          className={`${inputCls} h-9 w-auto text-[13px]`}
+          className={`${fieldBase} h-9 w-full text-[13px] sm:w-auto`}
           value={sort}
           onChange={(e) => setSort(e.target.value as SortKey)}
         >

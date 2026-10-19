@@ -58,13 +58,14 @@ export function Timeline({ data }: { data: { day: string; count: number }[] }) {
         </span>
       </div>
       <svg
-        viewBox={`0 0 ${W} ${H + 18}`}
-        className="h-auto w-full"
+        viewBox={`0 0 ${W} ${H}`}
+        preserveAspectRatio="none"
+        className="block h-32 w-full"
         role="img"
         aria-label={`Enlaces recibidos por día, últimos ${data.length} días`}
         onMouseLeave={() => setHover(null)}
       >
-        <line x1="0" x2={W} y1={H} y2={H} stroke="var(--line)" />
+        <line x1="0" x2={W} y1={H - 0.5} y2={H - 0.5} stroke="var(--line)" vectorEffect="non-scaling-stroke" />
         {data.map((d, i) => {
           const bh = d.count ? Math.max(3, (d.count / max) * (H - 8)) : 0;
           return (
@@ -75,7 +76,6 @@ export function Timeline({ data }: { data: { day: string; count: number }[] }) {
                 y={H - bh}
                 width={bw}
                 height={bh}
-                rx={Math.min(3, bw / 2)}
                 fill="var(--accent)"
                 opacity={hover === null || hover === i ? 1 : 0.4}
               >
@@ -84,13 +84,11 @@ export function Timeline({ data }: { data: { day: string; count: number }[] }) {
             </g>
           );
         })}
-        <text x="0" y={H + 14} fontSize="11" fill="var(--ink-3)">
-          {fmt(data[0].day)}
-        </text>
-        <text x={W} y={H + 14} fontSize="11" fill="var(--ink-3)" textAnchor="end">
-          Hoy
-        </text>
       </svg>
+      <div className="mt-1.5 flex justify-between text-[11.5px] text-[var(--ink-3)]">
+        <span>{fmt(data[0].day)}</span>
+        <span>Hoy</span>
+      </div>
     </div>
   );
 }

@@ -224,8 +224,9 @@ export const useToast = () => useContext(ToastCtx);
 // ---------------------------------------------------------------------------
 // Campos de formulario
 // ---------------------------------------------------------------------------
-export const inputCls =
-  "h-10 w-full rounded-lg border border-[var(--line)] bg-[var(--bg)] px-3 text-sm text-[var(--ink)] placeholder:text-[var(--ink-3)] focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-soft)]";
+export const fieldBase =
+  "h-10 rounded-lg border border-[var(--line)] bg-[var(--bg)] px-3 text-sm text-[var(--ink)] placeholder:text-[var(--ink-3)] focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-soft)]";
+export const inputCls = `${fieldBase} w-full`;
 
 export function Field({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
   return (
