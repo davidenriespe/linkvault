@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+:root {
+  color-scheme: light;
+  --bg: #f5f6f2;
+  --panel: #ffffff;
+  --panel-2: #eef0ea;
+  --line: #e0e4dc;
+  --ink: #16201b;
+  --ink-2: #4a5550;
+  --ink-3: #87908b;
+  --accent: #0f766e;
+  --accent-strong: #0b5f58;
+  --accent-ink: #ffffff;
+  --accent-soft: color-mix(in oklab, #0f766e 22%, transparent);
+  --ok: #15803d;
+  --warn: #b45309;
+  --danger: #dc2626;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0d1311;
+  --panel: #141c19;
+  --panel-2: #1b2521;
+  --line: #25312c;
+  --ink: #e6ece9;
+  --ink-2: #a6b2ac;
+  --ink-3: #6c7973;
+  --accent: #2dd4bf;
+  --accent-strong: #5eead4;
+  --accent-ink: #042f2b;
+  --accent-soft: color-mix(in oklab, #2dd4bf 25%, transparent);
+  --ok: #4ade80;
+  --warn: #fbbf24;
+  --danger: #f87171;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+.lv-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.lv-scroll::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 8px;
+}
+
+@keyframes lv-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes lv-pop {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+}
+@keyframes lv-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+@keyframes lv-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.lv-fade {
+  animation: lv-fade 0.18s ease-out;
+}
+.lv-pop {
+  animation: lv-pop 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.lv-in {
+  animation: lv-in 0.25s ease-out both;
+}
+.lv-pulse {
+  animation: lv-pulse 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lv-fade,
+  .lv-pop,
+  .lv-in,
+  .lv-pulse {
+    animation: none;
+  }
+  * {
+    transition: none !important;
+  }
+}

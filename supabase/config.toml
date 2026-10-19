@@ -1,0 +1,12 @@
+# Configuración mínima para la CLI de Supabase (`supabase link`, `supabase db push`,
+# `supabase functions deploy`). El proyecto remoto ya existe: jmtglvtvfikiqfomrqgp.
+project_id = "linkvault"
+
+# Ambas funciones validan la autenticación por su cuenta:
+# - whatsapp-webhook: firma HMAC de Meta (o sesión del usuario en modo de prueba)
+# - links-api: token de sesión del usuario (supabase.auth.getUser)
+[functions.whatsapp-webhook]
+verify_jwt = false
+
+[functions.links-api]
+verify_jwt = false

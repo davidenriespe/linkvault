@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.test.tsbuildinfo",
+    "target": "ES2022",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "strict": true,
+    "types": ["node"]
+  },
+  "include": [
+    "tests",
+    "supabase/functions/_shared/urls.ts",
+    "supabase/functions/_shared/ssrf.ts",
+    "supabase/functions/_shared/metadata.ts",
+    "supabase/functions/_shared/classify.ts",
+    "supabase/functions/_shared/whatsapp.ts",
+    "supabase/functions/_shared/ai.ts",
+    "src/lib/logic.ts",
+    "src/lib/types.ts"
+  ]
+}
