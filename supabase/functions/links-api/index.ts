@@ -4,7 +4,6 @@
 //   { action: "refetch", id }    → vuelve a obtener metadatos y clasificar
 //   { action: "status" }         → qué integraciones están configuradas (sólo booleanos)
 
-import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import {
   CORS_HEADERS,
   enrichLink,

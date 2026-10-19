@@ -6,7 +6,6 @@
 //        con el mismo formato que Meta; se procesa igual pero se marca como
 //        «simulación». No implica que WhatsApp esté conectado.
 
-import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import type { SupabaseClient } from "npm:@supabase/supabase-js@2";
 import { extractUrls } from "../_shared/urls.ts";
 import {
