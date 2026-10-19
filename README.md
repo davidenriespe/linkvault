@@ -233,6 +233,8 @@ recompartir) se verificó con un script SQL transaccional contra el proyecto rea
 - ✅ Dashboard completo, búsqueda, filtros, exportación, ajustes con estado real, simulador.
 - ⏳ **WhatsApp real**: requiere tus credenciales de Meta (pasos 1–6 de [docs/WHATSAPP.md](docs/WHATSAPP.md)). Hasta entonces
   la app indica «No conectado» y sólo funciona el simulador.
-- ⏳ **Despliegue en Vercel**: requiere importar el repositorio con tu cuenta (sección anterior).
+- ✅ **Publicada en GitHub Pages**: <https://davidenriespe.github.io/linkvault/> (se actualiza con cada push a `main`).
+- ⏳ Supabase → Authentication → URL Configuration: poner la URL de Pages como Site URL y Redirect URL.
+- ⏳ Borrar el usuario de prueba `e2e-test@linkvault.invalid` (Authentication → Users).
 - ⏳ Desactivar nuevos registros en Supabase Auth después de crear tu cuenta.
 - Posibles mejoras: envío del resumen diario por correo, PWA instalable con «Compartir con LinkVault» directo (Web Share Target).
